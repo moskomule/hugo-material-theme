@@ -1,0 +1,92 @@
+<!-- Footer -->
+<footer class="copyright">
+
+    <!-- Copyright -->
+    <span class="copyright">
+                <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a>&nbsp{{ .Site.Params.copyright }}, Powered by <a href="https://gohugo.io/">Hugo</a>
+    </span>
+
+</footer>
+</main>
+<!-- Scripts -->
+
+<!-- syntax highliting -->
+
+<script type="text/javascript" src="/js/highlight.pack.js"></script>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+</script>
+
+<!-- drawer -->
+<script type="text/javascript" src="/js/material-components-web.js"></script>
+<script type="text/javascript">
+    var drawerEl = document.querySelector('.mdc-temporary-drawer');
+    var MDCTemporaryDrawer = mdc.drawer.MDCTemporaryDrawer;
+    var drawer = new MDCTemporaryDrawer(drawerEl);
+    document.querySelector('.header-menu').addEventListener('click', function() {
+        drawer.open = true;
+    });
+    drawerEl.addEventListener('MDCTemporaryDrawer:open', function() {
+        console.log('Received MDCTemporaryDrawer:open');
+    });
+    drawerEl.addEventListener('MDCTemporaryDrawer:close', function() {
+        console.log('Received MDCTemporaryDrawer:close');
+    });
+</script>
+
+<script type="text/javascript">
+    (function() {
+        var pollId = 0;
+        pollId = setInterval(function() {
+            var pos = getComputedStyle(document.querySelector('.mdc-toolbar')).position;
+            if (pos === 'fixed' || pos === 'relative') {
+                init();
+                clearInterval(pollId);
+            }
+        }, 250);
+
+        function init() {
+            var toolbar = mdc.toolbar.MDCToolbar.attachTo(document.querySelector('.mdc-toolbar'));
+            toolbar.listen('MDCToolbar:change', function(evt) {
+                var flexibleExpansionRatio = evt.detail.flexibleExpansionRatio;
+                ratioSpan.innerHTML = flexibleExpansionRatio.toFixed(2);
+            });
+            toolbar.fixedAdjustElement = document.querySelector('.mdc-toolbar-fixed-adjust');
+        }
+    })();
+</script>
+
+<!-- KaTeX -->
+<script>
+    renderMathInElement(
+        document.body, {
+            delimiters: [{
+                    left: "$$",
+                    right: "$$",
+                    display: false
+                },
+                {
+                    left: "\\[",
+                    right: "\\]",
+                    display: true
+                },
+                {
+                    left: "$",
+                    right: "$",
+                    display: false
+                }
+            ],
+            ignoredTags: [
+                "script",
+                "noscript",
+                "style",
+                "textarea",
+                "pre",
+                "code"
+            ]
+        }
+    );
+</script>
+</body>
+
+</html>

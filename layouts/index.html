@@ -1,0 +1,84 @@
+{{ partial "header.html" . }}
+<!-- Main -->
+<div id="container">
+
+    <!-- About Me -->
+    <section id="about">
+        <div class="container">
+
+            <header>
+                <h1>About Me</h1>
+            </header>
+
+            <div class="index-content">
+                <img src="img/about.jpg" alt="picture of me" / height="100"> {{with .Site.Params.AboutMe}}
+                <p>{{.}}</p>
+                {{end}}
+                {{ with .Site.Params.twitter }}<a href="https://twitter.com/{{ . }}" target="_blank"><i class="fa fa-2x fa-twitter" aria-hidden="true"></i></a>{{ end }}
+                {{ with .Site.Params.facebook }}<a href="{{ . }}" target="_blank"><i class="fa fa-2x fa-facebook" aria-hidden="true"></i></a>{{ end }}
+                {{ with .Site.Params.github }}<a href="https://github.com/{{ . }}" target="_blank"><i class="fa fa-2x fa-github" aria-hidden="true"></i></a>{{ end }}
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles -->
+    <section id="articles">
+        <div class="container">
+            <header>
+                <h1>Articles</h1>
+            </header>
+            <div class="mdc-grid-list mdc-grid-list--tile-gutter-1 index-content">
+                <ul class="mdc-grid-list__tiles">
+                    {{ range .Site.Params.topics }}
+                    <li class="mdc-grid-tile">
+                        <a href="{{ .url }}">
+                            <div class="mdc-grid-tile__primary">
+                                <img class="mdc-grid-tile__primary-content" src="{{ .pic }}" alt="{{ .alt }}" />
+                            </div>
+                            <span class="mdc-grid-tile__secondary">
+                <span class="mdc-grid-tile__title">{{ .topic }}</span>
+                            </span>
+                        </a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+
+            <header>
+                <h1>recent articles</h1>
+            </header>
+            {{ $paginator := .Paginate (where .Data.Pages "Type" "in" (slice "post" "travel") )}} {{ range $paginator.Pages }}
+            <div class="mdc-elevation--z1 mdc-ripple-surface mdc-list index-content">
+                <a class="mdc-list-item" href="{{ .Permalink }}">{{ .Title }} {{ if .Draft }}:: DRAFT{{end}}</a>
+                <sub>({{ .Date.Format "Jan 2, 2006" }})</sub>
+            </div>
+            {{ end }}
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <header>
+                <h1>Contact</h1>
+            </header>
+            <div class="index-content"> {{ with .Site.Params.twitter }}
+                <a href="https://twitter.com/intent/tweet?screen_name={{.}}" class="twitter-mention-button" data-related="{{.}}">Tweet to @{{.}}</a>
+                <script>
+                    ! function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0],
+                            p = /^http:/.test(d.location) ? 'http' : 'https';
+                        if (!d.getElementById(id)) {
+                            js = d.createElement(s);
+                            js.id = id;
+                            js.src = p + '://platform.twitter.com/widgets.js';
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }
+                    }(document, 'script', 'twitter-wjs');
+                </script>
+                {{end}}
+            </div>
+        </div>
+    </section>
+</div>
+{{ partial "footer.html" . }}

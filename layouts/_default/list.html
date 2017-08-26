@@ -1,0 +1,15 @@
+{{ partial "header.html" . }}
+
+<section class="contents-list">
+    <div class="container">
+        <h1>{{ .Title }}</h1> {{ range .Data.Pages }}
+        <div class="mdc-elevation--z1 mdc-ripple-surface mdc-list">
+            <a class="mdc-list-item" href="{{ .Permalink }}">{{ .Title }} {{ if .Draft }}:: DRAFT{{end}}</a>{{ .Date.Format "Jan 2, 2006" }}
+            <sub>&nbsp; {{ range .Params.tags }} #<a href="/tags/{{ . | urlize }}">{{ . }}</a>&nbsp; {{ end }}</sub>
+        </div>
+        {{ end }}
+    </div>
+    </div>
+</section>
+
+{{ partial "footer.html" . }}

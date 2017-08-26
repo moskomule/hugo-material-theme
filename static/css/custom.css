@@ -1,0 +1,153 @@
+body {
+    background-color: rgba(232, 234, 246, 0.3);
+    font-family: Roboto, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+main {
+    padding-top: 40px;
+    margin: auto;
+    max-width: 840px;
+}
+
+article {
+    max-width: 800px;
+}
+
+h1 {
+    border-left: 5px solid #3f51b5;
+    padding-left: 10px;
+    font-weight: lighter;
+    font-size: 20pt;
+}
+
+article h2 {
+    font-weight: lighter;
+}
+
+article h2::before{
+    content: "◆";
+    color: #3f51b5;
+}
+
+article h3::before{
+    content: "◇";
+    color: #3f51b5;
+}
+
+article code {
+    font-family: 'Source Sans Pro', monospace;
+    padding: 0px 5px 0px 5px;
+    color: rgba(255, 40, 81, 1);
+    background-color: rgba(255, 40, 81, 0.1);
+    border-radius: 0.2em;
+}
+
+article pre code {
+    font-family: 'Source Sans Pro', monospace;
+    border-radius: 0.2em;
+}
+
+article p {
+    padding-left: 15px;
+}
+
+footer {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    width: 100%;
+    margin-left: 120px;
+}
+
+
+/* header */
+
+.mdc-toolbar__row:first-child::after {
+    background-image: url("../img/banner.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+/* sidebar */
+
+header #introduction a {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.container {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+figure{
+    padding-left: 20px;
+    padding-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 10px;
+}
+
+figcaption h4 {
+    padding-left: 10px;
+    font-weight: lighter;
+    max-width: 640px;
+    border-left: 2px solid gray;
+    border-bottom: 1px solid gray;
+}
+
+figcaption h4::before {
+    content: "fig. ";
+}
+
+@media screen and (min-width: 720px) {
+    article img {
+        max-height: 640px;
+        max-width: 640px;
+    }
+}
+
+@media screen and (max-width: 719px) {
+    article img {
+        max-height: 100%;
+        max-width: 100%;
+    }
+}
+
+.article-header h1 {
+    font-weight: lighter;
+}
+
+.index-content {
+    margin-left: 20px;
+}
+
+
+/* pagenation */
+
+.pagination-single .container {
+    padding-top: 20px;
+    border-top: 1px solid gray;
+    max-width: 720px;
+}
+
+nav.pagination-single span.previous {
+    float: left;
+    max-width: 300px;
+    font-size: 14px;
+}
+
+nav.pagination-single span.next {
+    float: right;
+    max-width: 300px;
+    font-size: 14px;
+}
+
+.social {
+    font-size: 20pt;
+}
+
+i.fa {
+    color: rgba(0, 0, 0, 0.5);
+    padding-right: 30px;
+}

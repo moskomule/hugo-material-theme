@@ -1,0 +1,13 @@
+# theme.toml template for a Hugo theme
+
+name = "hugo-material-theme"
+license = "Creative Commons Attribution 3.0 Unported"
+description = "responsive material theme"
+homepage = "https://mosko.tokyo"
+tags = ["responsive", "material"]
+features = ["responsive", "sticky sidebar"]
+min_version = 0.1
+
+[author]
+  name = "moskomule"
+  homepage = "https://mosko.tokyo"
