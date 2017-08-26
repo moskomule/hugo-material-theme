@@ -14,9 +14,9 @@
                 <img src="img/about.jpg" alt="picture of me" / height="100"> {{with .Site.Params.AboutMe}}
                 <p>{{.}}</p>
                 {{end}}
-                {{ with .Site.Params.twitter }}<a href="https://twitter.com/{{ . }}" target="_blank"><i class="fa fa-2x fa-twitter" aria-hidden="true"></i></a>{{ end }}
-                {{ with .Site.Params.facebook }}<a href="{{ . }}" target="_blank"><i class="fa fa-2x fa-facebook" aria-hidden="true"></i></a>{{ end }}
-                {{ with .Site.Params.github }}<a href="https://github.com/{{ . }}" target="_blank"><i class="fa fa-2x fa-github" aria-hidden="true"></i></a>{{ end }}
+                {{ range .Site.Params.social }}
+                <a href="{{ .link }}" target="_blank"><i class="fa fa-3x fa-{{ .icon }}" aria-hidden="true"></i></a>
+                {{ end }}
             </div>
         </div>
     </section>
