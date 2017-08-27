@@ -1,6 +1,6 @@
 # hugo-material-theme
 
-hugo-material-theme is a material design hugo theme for [my website](mosko.tokyo).
+hugo-material-theme is a material design hugo theme for [my website](https://mosko.tokyo).
 
 > Material Design is a unified system that combines theory, resources, and tools for crafting digital experiences. ([Material Design](https://material.io/))
 
@@ -48,3 +48,8 @@ copyright = "Written by Homer"
   pic = "img/poet.jpg"
   alt = "articles on poems"
 ```
+
+## todo
+
+- [ ] multilingual
+- [ ] flexible content sidebar
