@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <!-- hugo-material-theme -->
 <html>
+
 <head>
     <title>
         {{ $isHomePage := eq .Title .Site.Title }}{{ .Title }}{{ if eq $isHomePage false }} | {{ .Site.Title }}{{ end }}
@@ -50,16 +51,16 @@
                 </header>
                 <nav class="mdc-temporary-drawer__content mdc-list-group">
                     <div id="icon-with-text" class="mdc-list">
-                        <a class="mdc-list-item" href="{{.Site.BaseURL}}#about">
+                        <a class="mdc-list-item" href="{{.Site.BaseURL | relLangURL}}#about">
                             <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">star</i>About
                         </a>
-                        <a class="mdc-list-item" href="{{.Site.BaseURL}}#articles">
+                        <a class="mdc-list-item" href="{{.Site.BaseURL | relLangURL}}#articles">
                             <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">book</i>Articles
                         </a>
                     </div>
                     <hr class="mdc-list-divider">
                     <div class="mdc-list">
-                        <a class="mdc-list-item" href="{{.Site.BaseURL}}#contact">
+                        <a class="mdc-list-item" href="{{.Site.BaseURL | relLangURL}}#contact">
                             <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">send</i>Contact
                         </a>
                     </div>
@@ -71,6 +72,21 @@
                         </a>
                     </div>
                     {{ end }}
+
+                    {{if .Site.IsMultiLingual}}
+                    {{$currentLang := .Site.Language.Lang}}
+                    {{$baseurl := .Site.BaseURL}}
+                    <hr class="mdc-list-divider">
+                    {{ range $lang := .Site.Languages }}
+                    {{$langname := $lang.LanguageName}}
+                    <div class="languages">
+                        <a class="mdc-list-item {{if eq $currentLang (string $lang)}}selected_lang{{end}}" href="{{printf "%s%s" $baseurl $lang}}">
+                            <i class="material-icons mdc-list-item__start-detail">language</i> <span>{{$langname}}</span>
+                        </a>
+                    </div>
+                    {{ end }}
+                    {{ end }}
+
                 </nav>
             </nav>
         </aside>

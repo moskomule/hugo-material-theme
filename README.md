@@ -6,6 +6,8 @@ hugo-material-theme is a material design hugo theme for [my website](https://mos
 
 In addition to the original material design, [font awesome](http://fontawesome.io/) and [KaTeX](https://github.com/Khan/KaTeX) is used.
 
+`hugo-material-theme` tries to support multilingual contents.
+
 ## installation
 
 At hugo's project root,
@@ -42,14 +44,34 @@ copyright = "Written by Homer"
   icon = "twitter"
   link = "https://twitter.com/homerus"
 
+# shared topic
 [[Params.topics]]
   topic = "poem"
   url = "poem"
-  pic = "img/poet.jpg"
+  pic = "/img/poet.jpg"
   alt = "articles on poems"
+
+[Languages]
+[Languages.he]
+languageName=Ἑλληνική
+weight=1
+    [[Languages.he.topics]]
+    topic = "criticism"
+    url = "criticism"
+    pic = "/img/crit.jpg"
+    alt = "criticism on barbaroi"
+[Languages.la]
+languageName="Lingua Latina"
+weight=2
+    [[Languages.la.topics]]
+    topic = "hisotry"
+    url = "history"
+    pic = "/img/crit.jpg"
+    alt = "hisotry of the Roman Empire"
 ```
 
 ## todo
 
+- [ ] remove hard coded contents
 - [ ] multilingual
 - [ ] flexible content sidebar

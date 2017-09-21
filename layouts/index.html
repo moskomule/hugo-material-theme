@@ -11,7 +11,7 @@
             </header>
 
             <div class="index-content">
-                <img src="img/about.jpg" alt="picture of me" / height="100"> {{with .Site.Params.AboutMe}}
+                <img src="/img/about.jpg" alt="picture of me" height="100"> {{with .Site.Params.AboutMe}}
                 <p>{{.}}</p>
                 {{end}}
                 {{ range .Site.Params.social }}
@@ -20,7 +20,6 @@
             </div>
         </div>
     </section>
-
     <!-- Articles -->
     <section id="articles">
         <div class="container">
@@ -31,7 +30,7 @@
                 <ul class="mdc-grid-list__tiles">
                     {{ range .Site.Params.topics }}
                     <li class="mdc-grid-tile">
-                        <a href="{{ .url }}">
+                        <a href="{{ .url | relLangURL }}">
                             <div class="mdc-grid-tile__primary">
                                 <img class="mdc-grid-tile__primary-content" src="{{ .pic }}" alt="{{ .alt }}" />
                             </div>
@@ -45,7 +44,7 @@
             </div>
 
             <header>
-                <h1>recent articles</h1>
+                <h2>recent articles</h2>
             </header>
             {{ $paginator := .Paginate (where .Data.Pages "Type" "in" (slice "post" "travel") )}} {{ range $paginator.Pages }}
             <div class="mdc-elevation--z1 mdc-ripple-surface mdc-list index-content">

@@ -6,12 +6,15 @@
     <div class="container">
         <div class="article-header">
             <h1>{{ .Title }}</h1>
-            <div class="meta">
-                {{ .Date.Format "Jan 2, 2006" }} &nbsp; {{ range .Params.tags }} #
-                <a href="/tags/{{ . | urlize }}">{{ . }}</a>&nbsp; {{ end }}
+            <div class="meta-data">
+                {{ .Date.Format "Jan 2, 2006" }} &nbsp; {{ range .Params.tags }} <span class="article-tag"><a href="/tags/{{ . | urlize }}">#{{ . }}</a></span>&nbsp; {{ end }}
             </div>
         </div>
+        <aside>
+            {{ .TableOfContents }}
+        </aside>
         <article>
+
             {{ .Content }}
 
             <!-- ShareThis Buttons
