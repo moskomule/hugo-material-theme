@@ -55,6 +55,7 @@ copyright = "Written by Homer"
 [Languages.he]
 languageName=Ἑλληνική
 weight=1
+visibleContents=["criticism"]
     [[Languages.he.topics]]
     topic = "criticism"
     url = "criticism"
@@ -63,6 +64,7 @@ weight=1
 [Languages.la]
 languageName="Lingua Latina"
 weight=2
+visibleContents=["history"]
     [[Languages.la.topics]]
     topic = "hisotry"
     url = "history"

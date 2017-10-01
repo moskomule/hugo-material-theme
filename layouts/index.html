@@ -15,8 +15,7 @@
                 <p>{{.}}</p>
                 {{end}}
                 {{ range .Site.Params.social }}
-                <a href="{{ .link }}" target="_blank"><i class="fa fa-3x fa-{{ .icon }}" aria-hidden="true"></i></a>
-                {{ end }}
+                <a href="{{ .link }}" target="_blank"><i class="fa fa-3x fa-{{ .icon }}" aria-hidden="true"></i></a> {{ end }}
             </div>
         </div>
     </section>
@@ -35,8 +34,7 @@
                                 <img class="mdc-grid-tile__primary-content" src="{{ .pic }}" alt="{{ .alt }}" />
                             </div>
                             <span class="mdc-grid-tile__secondary">
-                <span class="mdc-grid-tile__title">{{ .topic }}</span>
-                            </span>
+                            <span class="mdc-grid-tile__title">{{ .topic }}</span></span>
                         </a>
                     </li>
                     {{ end }}
@@ -46,9 +44,10 @@
             <header>
                 <h2>recent articles</h2>
             </header>
-            {{ $paginator := .Paginate (where .Data.Pages "Type" "in" (slice "post" "travel") )}} {{ range $paginator.Pages }}
+            {{ $paginator := .Paginate (where .Data.Pages "Type" "in" .Site.Params.visibleContents )}}
+            {{ range $paginator.Pages }}
             <div class="mdc-elevation--z1 mdc-ripple-surface mdc-list index-content">
-                <a class="mdc-list-item" href="{{ .Permalink }}">{{ .Title }} {{ if .Draft }}:: DRAFT{{end}}</a>
+                <a class="mdc-list-item" href="{{ .Permalink }}">{{ .Title }}</a>
                 <sub>({{ .Date.Format "Jan 2, 2006" }})</sub>
             </div>
             {{ end }}
