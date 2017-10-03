@@ -1,19 +1,19 @@
 # hugo-material-theme
 
-hugo-material-theme is a material design hugo theme for [my website](https://mosko.tokyo).
+hugo-material-theme is a multilingual material design hugo theme for [my website](https://mosko.tokyo).
 
 > Material Design is a unified system that combines theory, resources, and tools for crafting digital experiences. ([Material Design](https://material.io/))
 
-In addition to the original material design, [font awesome](http://fontawesome.io/) and [KaTeX](https://github.com/Khan/KaTeX) is used.
-
-`hugo-material-theme` tries to support multilingual contents.
+In addition to the original material design, [font awesome](http://fontawesome.io/) and [KaTeX](https://github.com/Khan/KaTeX) are used.
 
 ## installation
 
 At hugo's project root,
 
 ```bash
+cd theme
 git clone https://github.com/moskomule/hugo-material-theme
+cd ..
 hugo server -t hugo-material-theme
 ```
 
@@ -75,5 +75,4 @@ visibleContents=["history"]
 ## todo
 
 - [ ] remove hard coded contents
-- [ ] multilingual
 - [ ] flexible content sidebar
