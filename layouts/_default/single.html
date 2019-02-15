@@ -19,9 +19,11 @@
 
         </article>
         <nav class="pagination-single">
-            {{ if .Next }}
-            <span class="previous">&larr; <a href="{{ .Next.Permalink }}" rel="prev">{{ .Next.Title }}</a></span> {{ end }} {{ if .Prev }}
-            <span class="next"><a href="{{ .Prev.Permalink }}" rel="next">{{ .Prev.Title }}</a> &rarr;</span> {{ end }}
+            {{ if .PrevPage }}
+            <span class="previous">&larr; <a href="{{ .PrevPage.Permalink }}" rel="prev">{{ .PrevPage.Title }}</a></span>
+            {{ end }} {{ if .NextPage }}
+            <span class="next"><a href="{{ .NextPage.Permalink }}" rel="next">{{ .PrevPage.Title }}</a> &rarr;</span>
+            {{ end }}
         </nav>
 
         <div class="disqus-comments">
