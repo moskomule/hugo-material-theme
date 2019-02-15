@@ -22,6 +22,7 @@
             {{ if .PrevPage }}
             <span class="previous">&larr; <a href="{{ .PrevPage.Permalink }}" rel="prev">{{ .PrevPage.Title }}</a></span> {{ end }} {{ if .NextPage }}
             <span class="next"><a href="{{ .NextPage.Permalink }}" rel="next">{{ .NextPage.Title }}</a> &rarr;</span> {{ end }}
+
         </nav>
 
         <div class="disqus-comments">
